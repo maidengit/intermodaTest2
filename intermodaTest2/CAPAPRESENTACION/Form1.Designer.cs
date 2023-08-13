@@ -48,55 +48,55 @@
             // btAgregar
             // 
             this.btAgregar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btAgregar.Location = new System.Drawing.Point(145, 70);
+            this.btAgregar.Location = new System.Drawing.Point(198, 54);
             this.btAgregar.Name = "btAgregar";
             this.btAgregar.Size = new System.Drawing.Size(136, 39);
             this.btAgregar.TabIndex = 1;
             this.btAgregar.Text = "Agregar";
             this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.Click += new System.EventHandler(this.btAgregar_Click);
             // 
             // btEditar
             // 
-            this.btEditar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btEditar.Location = new System.Drawing.Point(287, 70);
+            this.btEditar.Location = new System.Drawing.Point(361, 70);
             this.btEditar.Name = "btEditar";
-            this.btEditar.Size = new System.Drawing.Size(136, 39);
+            this.btEditar.Size = new System.Drawing.Size(75, 23);
             this.btEditar.TabIndex = 2;
             this.btEditar.Text = "Editar";
-            this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // btEliminar
             // 
-            this.btEliminar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btEliminar.Location = new System.Drawing.Point(429, 70);
+            this.btEliminar.Location = new System.Drawing.Point(497, 70);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(136, 39);
-            this.btEliminar.TabIndex = 3;
+            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.TabIndex = 1;
             this.btEliminar.Text = "Eliminar";
-            this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
             // 
             // btRenovar
             // 
-            this.btRenovar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btRenovar.Location = new System.Drawing.Point(571, 70);
+            this.btRenovar.Location = new System.Drawing.Point(595, 70);
             this.btRenovar.Name = "btRenovar";
-            this.btRenovar.Size = new System.Drawing.Size(136, 39);
-            this.btRenovar.TabIndex = 4;
+            this.btRenovar.Size = new System.Drawing.Size(75, 23);
+            this.btRenovar.TabIndex = 0;
             this.btRenovar.Text = "Renovar";
-            this.btRenovar.UseVisualStyleBackColor = true;
+            this.btRenovar.Click += new System.EventHandler(this.btRenovar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 380);
+            this.ClientSize = new System.Drawing.Size(742, 366);
             this.Controls.Add(this.btRenovar);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btEditar);
             this.Controls.Add(this.btAgregar);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
