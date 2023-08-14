@@ -61,10 +61,10 @@ namespace intermodaTest2
         {
             productoDetalle pd = new productoDetalle();
             clsProductos objetoProducto = new clsProductos();
+            
+            pd.ShowDialog();
             estado = 0;
             if (pd.checkboxEstado.Checked) estado = 1;
-            //ListarUnidadMedida();
-            pd.ShowDialog();
             if (pd.hizoClicEnAceptar)
             {
                 objetoProducto.insertarProducto(
@@ -74,9 +74,9 @@ namespace intermodaTest2
                     Convert.ToInt32(pd.cUnidadMedida.SelectedValue),
                     Convert.ToInt32(estado)
                 );
+                MessageBox.Show("Listo, guardado");
             }
-
-            //MessageBox.Show("Listo");
+            pd.Dispose();
             listarProductos(); // Actualizar el datagridview
         }
 

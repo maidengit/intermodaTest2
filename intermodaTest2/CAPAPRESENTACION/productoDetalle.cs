@@ -19,6 +19,7 @@ namespace intermodaTest2.CAPAPRESENTACION
             crearFormatoModal();
             ListarUnidadMedida();
             listarTipo();
+            tCodigo.Focus();
         }
         public bool hizoClicEnAceptar = true;
         public void crearFormatoModal()
@@ -32,7 +33,7 @@ namespace intermodaTest2.CAPAPRESENTACION
 
         public void darEstiloBotones()
         {
-            
+
         }
         public void darEstilo()
         {
@@ -46,12 +47,12 @@ namespace intermodaTest2.CAPAPRESENTACION
             button1.ForeColor = Color.White;
             button1.Font = new Font("Arial", 12, FontStyle.Bold);
             //button1.Image = Image.FromFile("path/to/image.png");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Padding = new Padding(10);
+            //button1.ImageAlign = ContentAlignment.MiddleLeft;
+            //button1.Padding = new Padding(10);
         }
         private void productoDetalle_Load(object sender, EventArgs e)
         {
-            
+            tNombre.Focus();
         }
 
         public void listarTipo() //Refill combobox tipo de producto
@@ -61,7 +62,6 @@ namespace intermodaTest2.CAPAPRESENTACION
             cTipo.DataSource = objetoProducto.ListarTiposProductos();
             cTipo.DisplayMember = "Nombre";
             cTipo.ValueMember = "Id";
-
         }
 
         public void ListarUnidadMedida() //Listar combobox sobre unidad de medida
@@ -75,14 +75,21 @@ namespace intermodaTest2.CAPAPRESENTACION
 
         private void button1_Click(object sender, EventArgs e)
         {
-            hizoClicEnAceptar = true;
-            MessageBox.Show("Hizo clic en aceptar");
+            if (!string.IsNullOrWhiteSpace(tCodigo.Text) || !string.IsNullOrWhiteSpace(tNombre.Text))
+            {
+                hizoClicEnAceptar = true;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             hizoClicEnAceptar = false;
-            this.Dispose();
+            this.Close();
         }
     }
 }
