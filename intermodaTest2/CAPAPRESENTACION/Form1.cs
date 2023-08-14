@@ -74,7 +74,6 @@ namespace intermodaTest2
                     Convert.ToInt32(pd.cUnidadMedida.SelectedValue),
                     Convert.ToInt32(estado)
                 );
-                MessageBox.Show("Listo, guardado");
             }
             pd.Dispose();
             listarProductos(); // Actualizar el datagridview
@@ -89,6 +88,7 @@ namespace intermodaTest2
                 if (pd.checkboxEstado.Checked) estado = 1;
                 if (!pd.checkboxEstado.Checked) estado = 0;
                 p.renovarProducto(idProducto);
+                MessageBox.Show("La operación se ha realizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listarProductos();
             }
         }
@@ -97,9 +97,19 @@ namespace intermodaTest2
         {
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
-                    idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                    p.eliminarProducto(idProducto);
-                    listarProductos();
+                    DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                        p.eliminarProducto(idProducto);
+                        listarProductos();
+                        Console.WriteLine("Registro eliminado.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Eliminación cancelada.");
+                    }
                 }
             }
 

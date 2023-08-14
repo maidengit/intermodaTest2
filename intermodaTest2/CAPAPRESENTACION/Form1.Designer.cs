@@ -48,7 +48,7 @@
             // btAgregar
             // 
             this.btAgregar.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btAgregar.Location = new System.Drawing.Point(198, 54);
+            this.btAgregar.Location = new System.Drawing.Point(219, 54);
             this.btAgregar.Name = "btAgregar";
             this.btAgregar.Size = new System.Drawing.Size(136, 39);
             this.btAgregar.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(497, 70);
+            this.btEliminar.Location = new System.Drawing.Point(442, 70);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(75, 23);
             this.btEliminar.TabIndex = 1;
@@ -76,7 +76,7 @@
             // 
             // btRenovar
             // 
-            this.btRenovar.Location = new System.Drawing.Point(595, 70);
+            this.btRenovar.Location = new System.Drawing.Point(523, 70);
             this.btRenovar.Name = "btRenovar";
             this.btRenovar.Size = new System.Drawing.Size(75, 23);
             this.btRenovar.TabIndex = 0;
