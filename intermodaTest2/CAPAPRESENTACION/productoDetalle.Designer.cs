@@ -44,7 +44,7 @@
             // checkboxEstado
             // 
             this.checkboxEstado.AutoSize = true;
-            this.checkboxEstado.Location = new System.Drawing.Point(71, 148);
+            this.checkboxEstado.Location = new System.Drawing.Point(348, 53);
             this.checkboxEstado.Name = "checkboxEstado";
             this.checkboxEstado.Size = new System.Drawing.Size(61, 19);
             this.checkboxEstado.TabIndex = 24;
@@ -53,9 +53,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(93, 185);
+            this.button1.Location = new System.Drawing.Point(300, 129);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 31);
+            this.button1.Size = new System.Drawing.Size(100, 37);
             this.button1.TabIndex = 23;
             this.button1.Text = "Guardar";
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -64,7 +64,7 @@
             // 
             this.tNombre.Location = new System.Drawing.Point(86, 51);
             this.tNombre.Name = "tNombre";
-            this.tNombre.Size = new System.Drawing.Size(121, 23);
+            this.tNombre.Size = new System.Drawing.Size(256, 23);
             this.tNombre.TabIndex = 22;
             // 
             // tCodigo
@@ -95,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 112);
+            this.label2.Location = new System.Drawing.Point(233, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 15);
             this.label2.TabIndex = 18;
@@ -113,7 +113,7 @@
             // cUnidadMedida
             // 
             this.cUnidadMedida.FormattingEnabled = true;
-            this.cUnidadMedida.Location = new System.Drawing.Point(86, 112);
+            this.cUnidadMedida.Location = new System.Drawing.Point(286, 83);
             this.cUnidadMedida.Name = "cUnidadMedida";
             this.cUnidadMedida.Size = new System.Drawing.Size(121, 23);
             this.cUnidadMedida.TabIndex = 16;
@@ -128,9 +128,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 189);
+            this.button2.Location = new System.Drawing.Point(194, 130);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 36);
             this.button2.TabIndex = 25;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 237);
+            this.ClientSize = new System.Drawing.Size(430, 183);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.checkboxEstado);
             this.Controls.Add(this.button1);
@@ -156,6 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "productoDetalle";
             this.Text = "productoDetalle";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.productoDetalle_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.productoDetalle_FormClosed_1);
             this.Load += new System.EventHandler(this.productoDetalle_Load);
             this.ResumeLayout(false);

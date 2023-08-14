@@ -20,6 +20,7 @@ namespace intermodaTest2.CAPAPRESENTACION
             ListarUnidadMedida();
             listarTipo();
             tCodigo.Focus();
+            hizoClicEnAceptar = false;
         }
         public bool hizoClicEnAceptar = true;
         public void crearFormatoModal()
@@ -47,9 +48,12 @@ namespace intermodaTest2.CAPAPRESENTACION
             button1.BackColor = Color.Coral;
             button1.ForeColor = Color.White;
             button1.Font = new Font("Arial", 12, FontStyle.Bold);
-            //button1.Image = Image.FromFile("path/to/image.png");
-            //button1.ImageAlign = ContentAlignment.MiddleLeft;
-            //button1.Padding = new Padding(10);
+      
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.BackColor = Color.Coral;
+            button2.ForeColor = Color.White;
+            button2.Font = new Font("Arial", 12, FontStyle.Bold);
+        
         }
         private void productoDetalle_Load(object sender, EventArgs e)
         {
@@ -101,6 +105,11 @@ namespace intermodaTest2.CAPAPRESENTACION
         private void productoDetalle_FormClosed_1(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void productoDetalle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //hizoClicEnAceptar = false;
         }
     }
 }

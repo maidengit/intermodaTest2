@@ -12,8 +12,34 @@ namespace intermodaTest2
         {
             InitializeComponent();
             darFormatoDataGridView();
+            darEstiloABotones();
         }
-        
+        public void darEstiloABotones()
+        {
+            btAgregar.Font = new Font("Arial", 12, FontStyle.Bold);
+            btAgregar.ForeColor = Color.White;
+            btAgregar.BackColor = Color.FromArgb(52, 152, 219);
+            btAgregar.FlatStyle = FlatStyle.Flat;
+            btAgregar.Size = new Size(150, 50);
+
+            btEditar.Font = new Font("Arial", 12, FontStyle.Bold);
+            btEditar.ForeColor = Color.White;
+            btEditar.BackColor = Color.FromArgb(52, 152, 219);
+            btEditar.FlatStyle = FlatStyle.Flat;
+            btEditar.Size = new Size(150, 50);
+
+            btEliminar.Font = new Font("Arial", 12, FontStyle.Bold);
+            btEliminar.ForeColor = Color.White;
+            btEliminar.BackColor = Color.FromArgb(52, 152, 219);
+            btEliminar.FlatStyle = FlatStyle.Flat;
+            btEliminar.Size = new Size(150, 50);
+
+            btRenovar.Font = new Font("Arial", 12, FontStyle.Bold);
+            btRenovar.ForeColor = Color.White;
+            btRenovar.BackColor = Color.FromArgb(52, 152, 219);
+            btRenovar.FlatStyle = FlatStyle.Flat;
+            btRenovar.Size = new Size(150, 50);
+        }
         public void darFormatoDataGridView()
         {
             dataGridView1.AllowUserToAddRows = false;
