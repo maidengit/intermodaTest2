@@ -87,7 +87,7 @@ namespace intermodaTest2
         {
             productoDetalle pd = new productoDetalle();
             clsProductos objetoProducto = new clsProductos();
-            
+            pd.Text = "Nuevo Producto";
             pd.ShowDialog();
             estado = 0;
             if (pd.checkboxEstado.Checked) estado = 1;
@@ -144,6 +144,7 @@ namespace intermodaTest2
             //Boton editar
             productoDetalle pd = new productoDetalle();
             estaEditando = true;
+            pd.Text = "Editando registro";
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 //Rellenar campos
