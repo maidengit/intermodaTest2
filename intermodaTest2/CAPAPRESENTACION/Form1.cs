@@ -5,7 +5,7 @@ namespace intermodaTest2
     public partial class Form1 : Form
     {
         clsProductos p = new clsProductos();
-        bool estaEditando = false;
+        //bool estaEditando = false;
         int idProducto;
         int estado;
         public Form1()
@@ -87,19 +87,19 @@ namespace intermodaTest2
         {
             productoDetalle pd = new productoDetalle();
             clsProductos objetoProducto = new clsProductos();
-            pd.Text = "Nuevo Producto";
+            pd.Text = "Nuevo Producto"; //Titulo de la ventana
             pd.ShowDialog();
+
             estado = 0;
             if (pd.checkboxEstado.Checked) estado = 1;
             if (pd.hizoClicEnAceptar)
             {
-                objetoProducto.insertarProducto(
-                    pd.tCodigo.Text,
-                    pd.tNombre.Text,
-                    Convert.ToInt32(pd.cTipo.SelectedValue),
-                    Convert.ToInt32(pd.cUnidadMedida.SelectedValue),
-                    Convert.ToInt32(estado)
-                );
+                objetoProducto._Codigo = pd.tCodigo.Text;
+                objetoProducto._Nombre = pd.tNombre.Text;
+                objetoProducto._ProductoTipoId = Convert.ToInt32(pd.cTipo.SelectedValue);
+                objetoProducto._UnidadMedidaID = Convert.ToInt32(pd.cUnidadMedida.SelectedValue);
+                objetoProducto._Estado = Convert.ToInt32(estado);
+                objetoProducto.insertarProducto();
             }
             pd.Dispose();
             listarProductos(); // Actualizar el datagridview
@@ -108,12 +108,15 @@ namespace intermodaTest2
         private void btRenovar_Click(object sender, EventArgs e)
         {
             productoDetalle pd = new productoDetalle();
+            
             if (dataGridView1.SelectedRows.Count == 1)
             {
-                idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                clsProductos objetoProducto = new clsProductos();
+                objetoProducto._Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                
                 if (pd.checkboxEstado.Checked) estado = 1;
                 if (!pd.checkboxEstado.Checked) estado = 0;
-                p.renovarProducto(idProducto);
+                objetoProducto.renovarProducto();
                 MessageBox.Show("La operación se ha realizado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listarProductos();
             }
@@ -124,11 +127,12 @@ namespace intermodaTest2
                 if (dataGridView1.SelectedRows.Count == 1)
                 {
                     DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+                
                     if (result == DialogResult.Yes)
                     {
-                        idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                        p.eliminarProducto(idProducto);
+                        clsProductos objetoProducto = new clsProductos();
+                        objetoProducto._Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                        objetoProducto.eliminarProducto();
                         listarProductos();
                         Console.WriteLine("Registro eliminado.");
                     }
@@ -143,7 +147,7 @@ namespace intermodaTest2
         {
             //Boton editar
             productoDetalle pd = new productoDetalle();
-            estaEditando = true;
+            //estaEditando = true;
             pd.Text = "Editando registro";
             if (dataGridView1.SelectedRows.Count == 1)
             {
@@ -165,16 +169,13 @@ namespace intermodaTest2
                     //EDITAR en accion
                     estado = 0;
                     if (pd.checkboxEstado.Checked) estado = 1;
-
-                    idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-                    objetoProducto.editarProducto(
-                        Convert.ToInt32(idProducto),
-                        pd.tCodigo.Text,
-                        pd.tNombre.Text,
-                        Convert.ToInt32(pd.cTipo.SelectedValue),
-                        Convert.ToInt32(pd.cUnidadMedida.SelectedValue),
-                        Convert.ToInt32(estado)
-                    );
+                        objetoProducto._Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                        objetoProducto._Codigo = pd.tCodigo.Text;
+                        objetoProducto._Nombre = pd.tNombre.Text;
+                        objetoProducto._ProductoTipoId = Convert.ToInt32(pd.cTipo.SelectedValue);
+                        objetoProducto._UnidadMedidaID = Convert.ToInt32(pd.cUnidadMedida.SelectedValue);
+                        objetoProducto._Estado = Convert.ToInt32(estado);
+                        objetoProducto.editarProducto();
                     listarProductos();
                 }
                 pd.Dispose();

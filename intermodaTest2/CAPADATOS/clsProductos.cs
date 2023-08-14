@@ -15,6 +15,29 @@ namespace intermodaTest2.CAPADATOS
         private SqlCommand comando = new SqlCommand(); //Esta clase se utiliza para enviar comandos SQL a una base de datos y ejecutarlos.
         private SqlDataReader leerFilas; //SqlDataReader: Se utiliza para recuperar y leer datos de una base de datos SQL Server.
 
+
+
+        //Ahora vamos a convertir esto a objeto para aplicar los pilares de la POO
+        //ATRIBUTOS
+        private int id;
+        private String codigo;
+        private String nombre;
+        private int ProductoTipoId;
+        private int UnidadMedidaID;
+        private int estado;
+        
+        //METODOS GET Y SET
+        public int _Id { get => id; set => id = value; }
+        public string _Codigo { get => codigo; set => codigo = value; }
+        public string _Nombre { get => nombre; set => nombre = value; }
+        public int _ProductoTipoId { get => ProductoTipoId; set => ProductoTipoId = value; }
+        public int _UnidadMedidaID { get => UnidadMedidaID; set => UnidadMedidaID = value; }
+        public int _Estado { get => estado; set => estado = value; }
+
+        //
+
+
+
         public DataTable ListarTiposProductos() //Recupera los datod de la de productos desde la Base de Datos
         {
             DataTable tabla = new DataTable();
@@ -60,15 +83,15 @@ namespace intermodaTest2.CAPADATOS
         //***Procedimientos del CRUD******
         //********************************
         //AGREGAR
-        public void insertarProducto(string codigo, String nombre, int tipo, int unidadMedida, int estado)
+        public void insertarProducto()
         {
             comando.Connection = Conexion.abrirConexion();
             comando.CommandText = "InsertarProducto";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@codigo", codigo);
             comando.Parameters.AddWithValue("@nombre", nombre);
-            comando.Parameters.AddWithValue("@ProductoTipoId ", tipo);
-            comando.Parameters.AddWithValue("@UnidadMedidaID", unidadMedida);
+            comando.Parameters.AddWithValue("@ProductoTipoId ", _ProductoTipoId);
+            comando.Parameters.AddWithValue("@UnidadMedidaID", _UnidadMedidaID);
             comando.Parameters.AddWithValue("@estado", estado);
             comando.ExecuteNonQuery();
             comando.Parameters.Clear();
@@ -76,7 +99,7 @@ namespace intermodaTest2.CAPADATOS
 
         //EDITAR
 
-        public void editarProducto(int id, String codigo, String nombre, int ProductoTipoId, int UnidadMedidaID, int estado)
+        public void editarProducto()
         {
             comando.Connection = Conexion.abrirConexion();
             comando.CommandText = "UPDATE Producto SET Codigo = '" + codigo + "', Nombre = '" + nombre + "', ProductoTipoId = " + ProductoTipoId + ", UnidadMedidaID = " + UnidadMedidaID + ", Estado = '"+estado+"' where Id = " + id + "";
@@ -86,20 +109,20 @@ namespace intermodaTest2.CAPADATOS
         }
 
         //ELIMINAR
-        public void eliminarProducto(int productoID)
+        public void eliminarProducto()
         {
             comando.Connection = Conexion.abrirConexion();
-                comando.CommandText = "delete from Producto where Id = "+productoID+";";
+                comando.CommandText = "delete from Producto where Id = "+_Id+";";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteNonQuery();
             Conexion.cerrarConexion();
         }
 
         //RENOVAR
-        public void renovarProducto(int idProducto)
+        public void renovarProducto()
         {
             comando.Connection = Conexion.abrirConexion();
-                comando.CommandText = "update Producto set estado = 1 where id = "+idProducto+";";
+                comando.CommandText = "update Producto set estado = 1 where id = "+_Id+";";
                 comando.CommandType = CommandType.Text;
                 comando.ExecuteNonQuery();
             Conexion.cerrarConexion();
