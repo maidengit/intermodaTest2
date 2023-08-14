@@ -156,6 +156,7 @@
             this.MinimizeBox = false;
             this.Name = "productoDetalle";
             this.Text = "productoDetalle";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.productoDetalle_FormClosed_1);
             this.Load += new System.EventHandler(this.productoDetalle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -29,6 +29,7 @@ namespace intermodaTest2.CAPAPRESENTACION
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             darEstilo();
+            
         }
 
         public void darEstiloBotones()
@@ -90,6 +91,16 @@ namespace intermodaTest2.CAPAPRESENTACION
         {
             hizoClicEnAceptar = false;
             this.Close();
+        }
+
+        private void productoDetalle_FormClosed(object sender, FormClosedEventArgs e)
+        {
+         
+        }
+
+        private void productoDetalle_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

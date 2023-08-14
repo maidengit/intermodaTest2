@@ -106,7 +106,6 @@ namespace intermodaTest2
         private void btEditar_Click(object sender, EventArgs e)
         {
             //Boton editar
-
             productoDetalle pd = new productoDetalle();
             estaEditando = true;
             if (dataGridView1.SelectedRows.Count == 1)
@@ -118,23 +117,19 @@ namespace intermodaTest2
                 pd.cUnidadMedida.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                 idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
 
-                if (Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value) == 1)
-                {
-                    pd.checkboxEstado.Checked = true;
-                }
-                else
-                {
-                    pd.checkboxEstado.Checked = false;
-                }
-
-                //UPDATE
-                clsProductos objetoProducto = new clsProductos();
-                estado = 0;
-                if (pd.checkboxEstado.Checked) estado = 1;
+                pd.checkboxEstado.Checked = false;
+                if (Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value) == 1) 
+                    pd.checkboxEstado.Checked = true;                
                 pd.ShowDialog();
+                
+                clsProductos objetoProducto = new clsProductos();
+                if (pd.hizoClicEnAceptar)
+                {
+                    //EDITAR en accion
+                    estado = 0;
+                    if (pd.checkboxEstado.Checked) estado = 1;
 
-
-                idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    idProducto = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
                     objetoProducto.editarProducto(
                         Convert.ToInt32(idProducto),
                         pd.tCodigo.Text,
@@ -143,7 +138,10 @@ namespace intermodaTest2
                         Convert.ToInt32(pd.cUnidadMedida.SelectedValue),
                         Convert.ToInt32(estado)
                     );
-                 }
+                    listarProductos();
+                }
+                pd.Dispose();
             }
         }
     }
+}
